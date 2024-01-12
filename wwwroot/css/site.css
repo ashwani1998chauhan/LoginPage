@@ -1,0 +1,93 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+
+
+body {
+    background-image: url('/Images/bses.jpg');
+    background-size: cover;
+    background-position: center;
+    font-family: 'Arial', sans-serif;
+    height: 80vh;
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+}
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+.text-center {
+    text-align: center;
+}
+
+
+.form-group::before {
+    content: '';
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+}
+
+
+.btn-light-red {
+    background-color: #B80000;
+    color: #fff;
+}
+
+    .btn-light-red:hover {
+        background-color: #D24545;
+        color: #fff;
+    }
+
+.footer {
+    background-color: white;
+    text-align: center;
+    max-height: fit-content;
+}
+
+    .footer a {
+        color: #6c757d;
+    }
+
+        .footer a:hover {
+            color: #007bff;
+        }
