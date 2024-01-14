@@ -28,7 +28,24 @@
             <span asp-validation-for="Password" class="text-danger"></span>
         </div>
 
-
+        <dnt-captcha asp-captcha-generator-max="999999"
+			 asp-captcha-generator-min="111111"
+			 asp-captcha-generator-language="English"
+			 asp-captcha-generator-display-mode="ShowDigits"
+			 asp-validation-error-message="Please enter the captcha as number"
+			 asp-text-box-class="form-control"
+             asp-font-name="Tahoma"
+			 asp-font-size="20"
+			 asp-fore-color="#333333"
+			 asp-back-color="#FCF6F5FF"
+			 asp-show-refresh-button="true"
+			 asp-refresh-button-class="bi-arrow-counterclockwise btn-lg"
+			 asp-use-relative-urls="true"
+			 asp-placeholder="Enter Captcha"
+			 asp-text-box-template="<div class='input-group-prepend'><span class='form-group-text'><span class='bi-lock'></span></span>{0}</div>"
+			 asp-validation-message-class="text-danger"
+             asp-use-noise="false"
+			 />
 
         <br />
         <button type="submit" class="btn btn-light-red">Login</button>

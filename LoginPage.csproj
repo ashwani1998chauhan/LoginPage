@@ -14,6 +14,13 @@
   <ItemGroup>
     <PackageReference Include="Captcha" Version="4.4.2" />
     <PackageReference Include="CaptchaMvc.Mvc4" Version="1.5.0" />
+    <PackageReference Include="DNTCaptcha.Core" Version="4.9.2" />
+    <PackageReference Include="HarfBuzzSharp.NativeAssets.Linux" Version="7.3.0.1" />
+    <PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies" Version="2.88.7" />
   </ItemGroup>
 
+  <Target Name="CopyFilesAfterPublish" AfterTargets="AfterPublish">
+      <Copy SourceFiles="$(TargetDir)runtimes/linux-x64/native/libSkiaSharp.so" DestinationFolder="$([System.IO.Path]::GetFullPath('$(PublishDir)'))/bin/" />
+      <Copy SourceFiles="$(TargetDir)runtimes/linux-x64/native/libHarfBuzzSharp.so" DestinationFolder="$([System.IO.Path]::GetFullPath('$(PublishDir)'))/bin/" />
+  </Target>
 </Project>

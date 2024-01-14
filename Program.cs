@@ -1,7 +1,14 @@
+using DNTCaptcha.Core;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDNTCaptcha(options => {
+    options.UseCookieStorageProvider().ShowThousandsSeparators(false);
+    options.WithEncryptionKey("This is my secure key, please change it!");
+});
 
 var app = builder.Build();
 

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using DNTCaptcha.Core;
 using LoginPage.Models;
 using System.Collections.Generic;
 
@@ -18,11 +19,11 @@ namespace LoginPage.Controllers
         }
 
         [HttpPost]
+        [ValidateDNTCaptcha(ErrorMessage = "Please enter correct captcha")]
         public IActionResult Login(UserModel model)
         {
             if (ModelState.IsValid)
-            {
-               
+            {  
                 var user = _users.Find(u => u.Username == model.Username && u.Password == model.Password);
 
                 if (user != null)
