@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using LoginPage.Models;
-using System.Collections.Generic;
+﻿using LoginPage.Models;
+using Microsoft.AspNetCore.Mvc;
+using System.IO;
+using System.Linq;
 
 namespace LoginPage.Controllers
 {
@@ -9,7 +10,6 @@ namespace LoginPage.Controllers
         private readonly List<UserModel> _users = new List<UserModel>
         {
             new UserModel { Username = "123", Password = "Password123" },
-          
         };
 
         public IActionResult Index()
@@ -22,23 +22,18 @@ namespace LoginPage.Controllers
         {
             if (ModelState.IsValid)
             {
-               
                 var user = _users.Find(u => u.Username == model.Username && u.Password == model.Password);
 
                 if (user != null)
                 {
-                   
                     return RedirectToAction("Index");
                 }
                 else
                 {
                     ModelState.AddModelError(string.Empty, "Invalid username or password");
                 }
-
-
             }
 
-        
             return View("Index", model);
         }
 

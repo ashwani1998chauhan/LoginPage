@@ -1,0 +1,22 @@
+﻿/* wwwroot/css/login-style.css */
+
+/* Import styles from site.css */
+@import url('site.css');
+
+/* Additional styles for the login page */
+#login-form-container {
+    text-align: center;
+}
+
+    #login-form-container .form-group {
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+    #login-form-container .form-control {
+        width: 200px; /* Set the width as needed */
+    }
+
+    #login-form-container .btn-light-red {
+        margin-top: 10px; /* Add spacing below the button */
+    }

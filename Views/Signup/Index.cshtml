@@ -1,0 +1,75 @@
+﻿@model SignupModel
+@using Microsoft.AspNetCore.Mvc.Rendering
+@using Microsoft.AspNetCore.Mvc.ViewFeatures
+
+@{
+    ViewData["Title"] = "Signup Page";
+}
+
+
+<!-- Add this line in the head section of your login.cshtml -->
+<link rel="stylesheet" href="~/css/login-style.css" />
+
+
+<div class="container text-center mt-5">
+    <h2>Sign Up</h2><br />
+
+    <form asp-controller="Signup" asp-action="Signup" method="post" class="form-group" id="signupForm">
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div class="form-group mt-3">
+            <b><label asp-for="FirstName">First Name</label></b>
+            <input asp-for="FirstName" class="form-control" placeholder="First Name" />
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mt-3">
+            <b><label asp-for="LastName">Last Name</label></b>
+            <input asp-for="LastName" class="form-control" placeholder="Last Name" />
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mt-3">
+            <b><label asp-for="Email">Email</label></b>
+            <input asp-for="Email" class="form-control" placeholder="Email" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mt-3">
+            <b><label asp-for="Username">Username</label></b>
+            <input asp-for="Username" class="form-control" placeholder="Username" />
+            <span asp-validation-for="Username" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <b><label asp-for="Password">Password</label></b>
+            <input asp-for="Password" type="password" class="form-control" placeholder="Password" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <b><label asp-for="ConfirmPassword">Confirm Password</label></b>
+            <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Confirm Password" />
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        </div>
+
+        <br />
+        <button type="button" class="btn btn-light-green" onclick="validateAndSubmit()">Sign Up</button>
+    </form>
+
+    @if (TempData["SignupSuccess"] != null && (bool)TempData["SignupSuccess"])
+    {
+        <div class="alert alert-success mt-3" role="alert">
+            Signup successful! <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+    }
+</div>
+
+<script>
+    function validateAndSubmit() {
+        // Perform client-side validation here if needed
+
+        // Submit the form
+        document.getElementById("signupForm").submit();
+    }
+</script>
